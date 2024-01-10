@@ -1,8 +1,5 @@
 <?php
 session_start();
-
-$input_email = $_POST ['email'];
-
 ?>
 
 
@@ -19,21 +16,12 @@ $input_email = $_POST ['email'];
 <body>
 <div class="container">
     <h1 class="text-center">My Newsletter</h1>
-    <?php if(preg_match('(@|.)',$input_email) ):
-        echo '<div class="alert alert-primary" role="alert">
-        A simple primary alert—check it out!
-      </div>';
-    
-    else:
-        echo '<div class="alert alert-danger" role="alert">
-        A simple danger alert—check it out!
-      </div>'
-    endif;?>
+    <?php include __DIR__ . '/functions.php'; ?>
 
-<form action="index.php" method="POST" id="email" name="email">
+<form action="index.php" method="POST" >
   <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label">Email address</label>
-    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <input type="text" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp">
     <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
   </div>
   <button type="submit" class="btn btn-primary">Submit</button>
